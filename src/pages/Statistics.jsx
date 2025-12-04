@@ -1,4 +1,4 @@
-// Statistics.js
+// Statistics.jsx
 import React, { useState, useEffect } from 'react';
 import './Statistics.css';
 

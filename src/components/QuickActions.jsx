@@ -1,4 +1,4 @@
-// src/components/QuickActions.js
+// src/components/QuickActions.jsx
 import React, { useState } from 'react';
 import Modal from './Modal';
 import './QuickActions.css';
