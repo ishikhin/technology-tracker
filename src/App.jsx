@@ -19,7 +19,7 @@ function AppContent() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState('');
     const [localTechnologies, setLocalTechnologies] = useState([]);
-    const [isAuthChecking, setIsAuthChecking] = useState(true); // Новое состояние
+    const [isAuthChecking, setIsAuthChecking] = useState(true);
 
     // Функция для обновления локальных технологий
     const updateLocalTechnologies = (newTechnologies) => {
@@ -45,7 +45,7 @@ function AppContent() {
         const user = localStorage.getItem('username') || '';
         setIsLoggedIn(loggedIn);
         setUsername(user);
-        setIsAuthChecking(false); // Завершаем проверку
+        setIsAuthChecking(false);
     }, []);
 
     const handleLogin = (user) => {

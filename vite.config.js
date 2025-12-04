@@ -14,5 +14,9 @@ export default defineConfig({
     publicDir: 'public',
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
+    },
+    server: {
+        port: 5173,
+        open: true // Автоматически открывать браузер
     }
 })
