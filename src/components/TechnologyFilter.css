@@ -1,0 +1,71 @@
+.technology-filter {
+    margin-bottom: 24px;
+}
+
+.technology-filter__tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    background: #f8fafc;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.technology-filter__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.technology-filter__tab:hover {
+    background: white;
+    color: #374151;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.technology-filter__tab--active {
+    background: white;
+    color: #1f2937;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+}
+
+.technology-filter__emoji {
+    font-size: 1rem;
+}
+
+.technology-filter__label {
+    white-space: nowrap;
+}
+
+.technology-filter__count {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .technology-filter__tabs {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .technology-filter__tab {
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px;
+    }
+
+    .technology-filter__label {
+        font-size: 0.75rem;
+    }
+}

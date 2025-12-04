@@ -1,0 +1,333 @@
+.bulk-status-editor {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.editor-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+
+
+
+.editor-content {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+    margin-top: 15px;
+}
+
+.selection-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.selected-count {
+    font-weight: 600;
+    color: #007bff;
+    background: #e7f1ff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.techs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 12px;
+    margin-bottom: 25px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.tech-checkbox {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.tech-checkbox:hover {
+    background: #e9ecef;
+}
+
+.tech-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    gap: 10px;
+}
+
+.tech-checkbox-input {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+
+
+.tech-title {
+    flex: 1;
+    font-weight: 500;
+    color: #333;
+    word-break: break-word;
+}
+
+.status-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-not-started {
+    background-color: #ffc107;
+    color: #856404;
+}
+
+.status-in-progress {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.status-completed {
+    background-color: #28a745;
+    color: white;
+}
+
+.status-controls {
+    margin-bottom: 25px;
+}
+
+.status-controls label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.status-controls select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.status-controls select:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    border-color: #007bff;
+}
+
+.help-text {
+    display: block;
+    color: #666;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.btn-primary:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: #545b62;
+}
+
+.btn-secondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Стили для скринридера */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Сообщение об успехе */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    border: 1px solid #c3e6cb;
+    text-align: center;
+    font-weight: 600;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Состояние загрузки */
+button[aria-busy="true"] {
+    position: relative;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+button[aria-busy="true"]::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Полоса прокрутки */
+.techs-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.techs-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.techs-grid::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.techs-grid::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Поддержка тёмной темы */
+@media (prefers-color-scheme: dark) {
+    .bulk-status-editor {
+        background: #2d3748;
+        color: #e2e8f0;
+    }
+
+    .editor-header h3 {
+        color: #e2e8f0;
+    }
+
+    .tech-checkbox {
+        background: #4a5568;
+    }
+
+    .tech-checkbox:hover {
+        background: #2d3748;
+    }
+
+    .tech-title {
+        color: #e2e8f0;
+    }
+
+    .selected-count {
+        background: #2d3748;
+        color: #63b3ed;
+    }
+
+    .techs-grid {
+        border-color: #4a5568;
+    }
+
+    .status-controls select {
+        background-color: #4a5568;
+        border-color: #718096;
+        color: #e2e8f0;
+    }
+
+    .checkbox-custom {
+        border-color: #a0aec0;
+    }
+}
+/* Стили для кнопки массового редактирования */
+.editor-header .btn-outline {
+    padding: 4px 8px;
+    font-size: 0.875rem;
+    min-height: 50px;
+    margin: 4px 100px;
+    min-width: 120px !important;     /* Минимальная ширина */
+    width: auto !important;
+    white-space: nowrap;
+}

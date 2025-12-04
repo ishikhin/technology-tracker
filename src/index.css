@@ -1,13 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f5f5f5;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Светлая тема (по умолчанию) */
+body {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --border-color: #ddd;
+    --primary-color: #1976d2;
+    --secondary-color: #dc004e;
+}
+
+/* Темная тема */
+body.dark-theme {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --primary-color: #90caf9;
+    --secondary-color: #f48fb1;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+body.dark-theme .page {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+body.dark-theme .technology-item,
+body.dark-theme .dashboard-section,
+body.dark-theme .settings-section,
+body.dark-theme .login-card,
+body.dark-theme .technology-form {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.app-loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -1,0 +1,420 @@
+/* src/css/TechNews.css */
+.news-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.news-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.news-header p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.news-status {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.update-badge {
+    background: var(--success);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.last-updated {
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+.loading-container {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.loading-container .spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error-message {
+    background: var(--error-light);
+    color: var(--error);
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid var(--error);
+}
+
+.refresh-btn {
+    display: block;
+    margin: 0.5rem auto 0;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.news-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.category-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 0 0 var(--radius) 0;
+}
+
+.category-frontend { background: #dbeafe; color: #1e40af; }
+.category-backend { background: #fce7f3; color: #be185d; }
+.category-language { background: #fef3c7; color: #92400e; }
+.category-devops { background: #e0e7ff; color: #3730a3; }
+.category-ai { background: #f3e8ff; color: #7e22ce; }
+.category-css { background: #dcfce7; color: #166534; }
+.category-general { background: #f1f5f9; color: #475569; }
+
+.news-content {
+    flex: 1;
+    margin-top: 1rem;
+}
+
+.news-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.news-description {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.news-source {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.news-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.news-card .btn {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-muted);
+}
+
+.empty-state p {
+    margin-bottom: 1rem;
+}
+
+.news-info {
+    background: var(--bg-hover);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.news-info p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-header h1 {
+        font-size: 2rem;
+    }
+
+    .news-filters {
+        flex-direction: column;
+    }
+
+    .filter-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .news-status {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+/* Добавь эти стили в конец файла TechNews.css */
+
+/* Стили для поисковой строки */
+.search-section {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.search-container {
+    margin-bottom: 1rem;
+}
+
+.search-input-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    padding-right: 3rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.search-clear-btn:hover {
+    background: var(--bg-hover);
+    color: var(--error);
+}
+
+/* Информация о результатах поиска */
+.search-results-info {
+    text-align: center;
+    padding: 0.5rem;
+    background: var(--bg-hover);
+    border-radius: var(--radius);
+    color: var(--text-secondary);
+}
+
+.search-results-info p {
+    margin: 0;
+}
+
+.search-query-info {
+    margin-left: 0.5rem;
+    font-style: italic;
+}
+
+/* Заголовок результатов */
+.news-results-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.news-results-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.results-count {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+/* Улучшенные карточки новостей */
+.news-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.news-content {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.news-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: auto;
+}
+
+.news-card .btn {
+    margin-top: auto;
+}
+
+/* Стили для категорий в карточке новостей */
+.category-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Пустое состояние */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+}
+
+.empty-state p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.empty-state .btn {
+    margin-top: 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .search-section {
+        padding: 1.5rem;
+    }
+
+    .search-input-wrapper {
+        max-width: 100%;
+    }
+
+    .news-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .news-results-header h2 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .results-count {
+        margin-left: 0;
+    }
+}
+
+/* Анимации */
+.news-card {
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}

@@ -1,0 +1,1166 @@
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dashboard-header p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+}
+
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.stat-card.total::before { background: var(--gradient-primary); }
+.stat-card.not-started::before { background: var(--warning); }
+.stat-card.in-progress::before { background: var(--info); }
+.stat-card.completed::before { background: var(--success); }
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bg-hover);
+}
+
+.stat-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.stat-content p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.dashboard-sections {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.dashboard-section {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Стили для всех технологий */
+.all-technologies {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tech-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.tech-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+.tech-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tech-info h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.tech-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.tech-actions {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.status-selector {
+    display: flex;
+    align-items: center;
+}
+
+.status-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 140px;
+}
+
+.status-select:hover {
+    border-color: var(--primary);
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Стили для разных статусов в селекте */
+.status-select.status-not-started {
+    border-left: 4px solid var(--warning);
+}
+
+.status-select.status-in-progress {
+    border-left: 4px solid var(--info);
+}
+
+.status-select.status-completed {
+    border-left: 4px solid var(--success);
+}
+
+/* Поле заметок */
+.tech-notes {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.tech-notes textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    resize: vertical;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.tech-notes textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.tech-notes textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.notes-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.quick-action-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--bg-hover);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.quick-action-card:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.action-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.quick-action-card h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.quick-action-card p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Прогресс бар */
+.progress-summary {
+    padding: 1.5rem;
+    background: var(--bg-hover);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.progress-summary h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-muted);
+}
+
+.empty-state p {
+    margin-bottom: 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .dashboard-sections {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-section {
+        padding: 1.5rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tech-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tech-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .status-select {
+        min-width: 120px;
+    }
+}
+
+/* Стили для секции API технологий */
+.api-technologies-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border);
+}
+
+.api-badge {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.api-technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.api-tech-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.api-tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-secondary);
+}
+
+.api-tech-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.api-tech-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.api-tech-header h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.github-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.stars {
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.language {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--bg-hover);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+}
+
+.api-tech-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.api-tech-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.category-frontend {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.category-backend {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.category-database {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.category-language {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.category-devops {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.category-ai {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.category-other {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.dark-theme .category-frontend {
+    background: #1e3a8a;
+    color: #93c5fd;
+}
+
+.dark-theme .category-backend {
+    background: #831843;
+    color: #f9a8d4;
+}
+
+.dark-theme .category-database {
+    background: #065f46;
+    color: #6ee7b7;
+}
+
+.dark-theme .category-language {
+    background: #78350f;
+    color: #fcd34d;
+}
+
+.dark-theme .category-devops {
+    background: #3730a3;
+    color: #c7d2fe;
+}
+
+.dark-theme .category-ai {
+    background: #581c87;
+    color: #d8b4fe;
+}
+
+.dark-theme .category-other {
+    background: #334155;
+    color: #cbd5e1;
+}
+
+/* Стили для кнопок действий */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    font-size: 1.125rem;
+}
+
+.btn-delete:hover {
+    background: var(--error);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Модальное окно подтверждения удаления */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.delete-confirm-modal {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    max-width: 400px;
+    width: 90%;
+    animation: slideUp 0.3s ease-out;
+}
+
+.delete-confirm-modal h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.delete-confirm-modal p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.warning-text {
+    color: var(--error) !important;
+    font-weight: 600;
+    margin-top: 1rem !important;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}
+
+.modal-actions .btn {
+    min-width: 100px;
+}
+
+/* Анимации для модального окна */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .delete-confirm-modal {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .btn {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+/* Стили для кнопок быстрых действий */
+.quick-action-btn {
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.quick-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Стили для информации о случайном выборе */
+.random-tech-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-hover);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.random-tech-info h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.random-tech-card {
+    background: var(--bg-card);
+    padding: 1.25rem;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--primary);
+}
+
+.random-tech-card h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.random-tech-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.random-tech-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.in-progress {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.dark-theme .status-badge.in-progress {
+    background: #1e3a8a;
+    color: #60a5fa;
+}
+
+/* Анимация для появления случайной технологии */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.random-tech-info {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Адаптивность для быстрых действий */
+@media (max-width: 768px) {
+    .random-tech-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .quick-action-card h4 {
+        font-size: 1rem;
+    }
+
+    .quick-action-card p {
+        font-size: 0.8rem;
+    }
+}
+/* Стили для системы фильтрации */
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.875rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.filter-tab:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.filter-tab.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.filter-tab.active:hover {
+    background: var(--primary-dark);
+}
+
+.tab-badge {
+    background: var(--error);
+    color: white;
+    border-radius: 10px;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+.filter-tab.active .tab-badge {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.filter-count {
+    color: var(--primary);
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* Адаптивность для фильтров */
+@media (max-width: 1024px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .filter-tabs {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-tab {
+        flex: 1;
+        justify-content: center;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-tabs {
+        flex-direction: column;
+    }
+
+    .filter-tab {
+        min-width: auto;
+    }
+
+    .section-header {
+        gap: 1.5rem;
+    }
+}
+
+/* Анимации для фильтрации */
+.all-technologies {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для пустого состояния с фильтром */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-muted);
+}
+
+.empty-state p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.empty-state .btn {
+    margin-top: 1rem;
+}
+
+/* Стили для поисковой системы */
+.search-container {
+    margin-bottom: 1rem;
+}
+
+.search-input-wrapper {
+    position: relative;
+    max-width: 400px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 2.5rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: var(--transition);
+    font-size: 0.875rem;
+}
+
+.search-clear-btn:hover {
+    background: var(--bg-hover);
+    color: var(--error);
+}
+
+/* Стили для результатов поиска */
+.search-results-count {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-left: 0.75rem;
+    font-weight: normal;
+    background: var(--bg-hover);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.search-match-badge {
+    font-size: 0.7rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.125rem 0.5rem;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+    font-weight: 600;
+}
+
+/* Стили для пустого состояния поиска */
+.empty-state-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.empty-state-actions .btn {
+    min-width: 140px;
+}
+
+/* Анимация для поиска */
+.search-input-wrapper {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Подсветка найденных элементов */
+.tech-card.search-match {
+    border-left: 4px solid var(--primary);
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.05) 100%);
+}
+
+/* Адаптивность для поиска */
+@media (max-width: 768px) {
+    .search-input-wrapper {
+        max-width: 100%;
+    }
+
+    .search-results-count {
+        display: block;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    .empty-state-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .empty-state-actions .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Улучшения для фильтров с поиском */
+.filter-section h2 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+/* Стили для API технологий */
+.tech-card.api-tech {
+    border-left: 4px solid var(--primary);
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.05) 100%);
+}
+
+.api-badge-small {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.api-tech-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.api-tech-stats .stars {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.api-tech-stats .language {
+    background: var(--bg-hover);
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.api-tech-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.api-tech-actions .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+/* Секция информации об API */
+.api-info-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-hover);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.api-info-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.api-info-section p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+/* Адаптивность для API технологий */
+@media (max-width: 768px) {
+    .api-tech-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .api-tech-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .api-tech-stats {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+/* Ссылка на популярные технологии */
+.popular-tech-link {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-hover);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.popular-tech-link h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.popular-tech-link p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
